@@ -1,4 +1,6 @@
 defmodule Identicon.Image do
-  # define with default property hex: nil
+  @moduledoc """
+  A Struct with properties: hex: nil, color: nil, grid: nil
+  """
   defstruct hex: nil, color: nil, grid: nil
 end

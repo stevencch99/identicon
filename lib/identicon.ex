@@ -9,9 +9,9 @@ defmodule Identicon do
 
   def build_gride(%Identicon.Image{hex: hex} = image) do
 
-    # TODO:
-    # 1. Why using Enum.chunk_every(3) will break?
-    # 2. Why there's some string inside the list when address some certain input
+    # Note:
+    # 1. Why using Enum.chunk_every(3) will break? #=> there remains 1 last element in the list, which can't be match in mirrow_row/1
+    # 2. Why there's some string inside the list when address some certain input #=> Charlist
     # iex(12)> Identicon.main("a")
     # [
     #   [12, 193, 117, 193, 12],
@@ -31,9 +31,7 @@ defmodule Identicon do
     %Identicon.Image{image | grid: grid}
   end
 
-
   def mirror_row(row) do
-    inspect(row)
     # [145, 46, 200]
     [first, second | _tail] = row
 
